@@ -1,6 +1,6 @@
-import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import ReactDOM from "react-dom/client";
 
 /* 确保在多线程环境下也能正确运行 */
 import { HelmetProvider } from 'react-helmet-async';
@@ -15,8 +15,12 @@ import { QueryClient,QueryClientProvider } from '@tanstack/react-query';
 /* 减少初始加载时间 */
 import { Suspense } from 'react';
 
+/* 开发调试工具 */
+// import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+
 /* 轻量级进度条 */
 import ProgressBar from '@/components/Main/ProgressBar.tsx'
+
 
 
 /* 备注 */
@@ -31,9 +35,12 @@ const charAt = `
 console.info(`%c${charAt}`, "color: #5BE49B");
 /* Elyisa */
 
-createRoot(document.getElementById('root')!).render(
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+root.render(
   <HelmetProvider>
     <QueryClientProvider client={new QueryClient()}>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <Suspense>
         <ProgressBar />
         <Analytics />
