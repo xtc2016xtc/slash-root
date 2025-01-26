@@ -20,6 +20,7 @@ import { Suspense } from 'react';
 
 /* 轻量级进度条 */
 import ProgressBar from '@/components/Main/ProgressBar.tsx'
+// import ProgressVideo from '@/components/Main/ProgressVideo.tsx';
 
 
 
@@ -43,6 +44,7 @@ root.render(
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <Suspense>
         <ProgressBar />
+        {/* <ProgressVideo videoRef={undefined} /> */}
         <Analytics />
         <App />
       </Suspense>
